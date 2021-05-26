@@ -44,4 +44,22 @@ class GithubCommand : IGithubCommand {
         })
     }
 
+    override fun getUserDetail(login: String, listener: OnGithubUserDetailListener) {
+        val call: Call<User> = gitHubService.getUserDetail(login)
+        Log.d("Github users", call.request().toString())
+        call.enqueue(object : Callback<User> {
+            override fun onResponse(call: Call<User>, response: Response<User>) {
+                listener.onSuccess(response.body()!!)
+                Log.i("Github users", "Success!")
+            }
+
+            override fun onFailure(call: Call<User>, t: Throwable) {
+                Log.w("Github users", "Error when get users!")
+                Log.w("Github users", t.message!!)
+                listener.onFailure()
+            }
+
+        })
+    }
+
 }

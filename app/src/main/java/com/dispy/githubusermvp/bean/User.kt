@@ -9,5 +9,6 @@ class User(
     val name: String = "",
     val location: String = "",
     val url: String = "",
-    val type: String = ""
+    val type: String = "",
+    val bio: String
 )
