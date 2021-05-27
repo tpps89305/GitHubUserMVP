@@ -57,6 +57,11 @@ class UserAdapter(private val context: Context, private val users: ArrayList<Use
                 crossfade(true)
                 transformations(CircleCropTransformation())
             }
+            if (user.type.equals("staff", true)) {
+                holder.textStaff.visibility = ViewGroup.VISIBLE
+            } else {
+                holder.textStaff.visibility = ViewGroup.GONE
+            }
 
             holder.itemView.setOnClickListener {
                 listener.onItemClick(user.login)
@@ -73,6 +78,7 @@ class UserAdapter(private val context: Context, private val users: ArrayList<Use
         RecyclerView.ViewHolder(binding.root) {
         val imgAvatar = binding.imgAvatar
         val textLogin = binding.textLogin
+        val textStaff = binding.textStaff
     }
 
     internal class UserHeaderViewHolder(binding: ItemUserHeaderBinding) :
