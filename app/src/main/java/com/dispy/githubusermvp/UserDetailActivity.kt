@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import coil.load
+import coil.transform.CircleCropTransformation
 import com.dispy.githubusermvp.bean.User
 import com.dispy.githubusermvp.databinding.ActivityUserDetailBinding
 import com.dispy.githubusermvp.presenter.GithubUserDetailPresenter
@@ -18,10 +19,14 @@ class UserDetailActivity: AppCompatActivity(), IGithubUserDetailView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportActionBar!!.hide()
         binding = ActivityUserDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         presenter.getUserDetail(intent.getStringExtra("login")!!)
+        binding.btnClose.setOnClickListener {
+            finish()
+        }
     }
 
     override fun showLoading() {
@@ -33,7 +38,10 @@ class UserDetailActivity: AppCompatActivity(), IGithubUserDetailView {
     }
 
     override fun getUser(user: User) {
-        binding.imageAvatar.load(user.avatarUrl)
+        binding.imageAvatar.load(user.avatarUrl) {
+            crossfade(true)
+            transformations(CircleCropTransformation())
+        }
         binding.textName.text = user.name
         binding.textBio.text = user.bio
         binding.textPerson.text = user.login

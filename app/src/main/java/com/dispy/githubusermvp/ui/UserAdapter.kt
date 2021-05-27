@@ -5,12 +5,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import coil.transform.CircleCropTransformation
 import com.dispy.githubusermvp.bean.User
 import com.dispy.githubusermvp.databinding.ItemUserBinding
 
 
-class UserAdapter(private val context: Context, private val users: ArrayList<User>): RecyclerView.Adapter<RecyclerView.ViewHolder>()
-{
+class UserAdapter(private val context: Context, private val users: ArrayList<User>) :
+    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private lateinit var listener: OnClickListener
 
@@ -33,7 +34,11 @@ class UserAdapter(private val context: Context, private val users: ArrayList<Use
         if (holder is UserViewHolder) {
             val user: User = users[position]
             holder.textLogin.text = user.login
-            holder.imgAvatar.load(user.avatarUrl)
+            holder.imgAvatar.load(user.avatarUrl) {
+                crossfade(true)
+                transformations(CircleCropTransformation())
+            }
+
             holder.itemView.setOnClickListener {
                 listener.onItemClick(user.login)
             }

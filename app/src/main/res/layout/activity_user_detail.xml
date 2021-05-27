@@ -10,7 +10,7 @@
         android:id="@+id/imageAvatar"
         android:layout_width="128dp"
         android:layout_height="128dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="64dp"
         android:contentDescription="@string/description_github_user_avatar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -120,5 +120,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textName" />
+
+    <ImageButton
+        android:id="@+id/btnClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@null"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_close" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
