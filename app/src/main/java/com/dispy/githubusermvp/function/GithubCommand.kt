@@ -1,8 +1,7 @@
-package com.dispy.githubusermvp
+package com.dispy.githubusermvp.function
 
 import android.util.Log
 import com.dispy.githubusermvp.bean.User
-import com.dispy.githubusermvp.function.GithubService
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import okhttp3.ResponseBody

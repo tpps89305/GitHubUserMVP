@@ -1,4 +1,4 @@
-package com.dispy.githubusermvp
+package com.dispy.githubusermvp.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.dispy.githubusermvp.bean.User
 import com.dispy.githubusermvp.databinding.ActivityMainBinding
 import com.dispy.githubusermvp.presenter.GithubUsersPresenter
-import com.dispy.githubusermvp.ui.UserAdapter
 import com.dispy.githubusermvp.view.IGithubUsersView
 
 class MainActivity : AppCompatActivity(), IGithubUsersView {

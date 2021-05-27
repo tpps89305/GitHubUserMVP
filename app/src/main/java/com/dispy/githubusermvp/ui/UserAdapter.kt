@@ -83,7 +83,6 @@ class UserAdapter(private val context: Context, private val users: ArrayList<Use
 
     internal class UserHeaderViewHolder(binding: ItemUserHeaderBinding) :
             RecyclerView.ViewHolder(binding.root) {
-        val textHeader = binding.textHeader
     }
 
     interface OnClickListener {

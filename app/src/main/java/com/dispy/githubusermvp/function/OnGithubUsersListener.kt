@@ -1,4 +1,4 @@
-package com.dispy.githubusermvp
+package com.dispy.githubusermvp.function
 
 import com.dispy.githubusermvp.bean.User
 

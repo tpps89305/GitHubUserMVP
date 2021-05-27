@@ -4,4 +4,7 @@
     <string name="description_person_icon">Person Icon</string>
     <string name="description_location_icon">Location Icon</string>
     <string name="description_link_icon">Link Icon</string>
+    <string name="description_close">Close</string>
+    <string name="text_staff">STAFF</string>
+    <string name="text_users">Users</string>
 </resources>

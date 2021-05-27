@@ -1,7 +1,7 @@
 package com.dispy.githubusermvp.presenter
 
-import com.dispy.githubusermvp.GithubCommand
-import com.dispy.githubusermvp.OnGithubUserDetailListener
+import com.dispy.githubusermvp.function.GithubCommand
+import com.dispy.githubusermvp.function.OnGithubUserDetailListener
 import com.dispy.githubusermvp.bean.User
 import com.dispy.githubusermvp.view.IGithubUserDetailView
 
