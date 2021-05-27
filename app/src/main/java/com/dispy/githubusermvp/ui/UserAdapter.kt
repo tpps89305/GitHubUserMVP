@@ -8,22 +8,41 @@ import coil.load
 import coil.transform.CircleCropTransformation
 import com.dispy.githubusermvp.bean.User
 import com.dispy.githubusermvp.databinding.ItemUserBinding
+import com.dispy.githubusermvp.databinding.ItemUserHeaderBinding
 
 
 class UserAdapter(private val context: Context, private val users: ArrayList<User>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private lateinit var listener: OnClickListener
+    private val TYPE_NORMAL = 0
+    private val TYPE_HEADER = 1
 
     fun setOnClickListener(listener: OnClickListener) {
         this.listener = listener
     }
 
+    override fun getItemViewType(position: Int): Int {
+        return when (position) {
+            0 -> TYPE_HEADER
+            else -> TYPE_NORMAL
+        }
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val layoutInflater = LayoutInflater.from(context)
-        return UserViewHolder(
-            ItemUserBinding.inflate(layoutInflater, parent, false)
-        )
+        return when (viewType) {
+            TYPE_HEADER -> {
+                UserHeaderViewHolder(
+                    ItemUserHeaderBinding.inflate(layoutInflater, parent, false)
+                )
+            }
+            else -> {
+                UserViewHolder(
+                    ItemUserBinding.inflate(layoutInflater, parent, false)
+                )
+            }
+        }
     }
 
     override fun getItemCount(): Int {
@@ -54,6 +73,11 @@ class UserAdapter(private val context: Context, private val users: ArrayList<Use
         RecyclerView.ViewHolder(binding.root) {
         val imgAvatar = binding.imgAvatar
         val textLogin = binding.textLogin
+    }
+
+    internal class UserHeaderViewHolder(binding: ItemUserHeaderBinding) :
+            RecyclerView.ViewHolder(binding.root) {
+        val textHeader = binding.textHeader
     }
 
     interface OnClickListener {
