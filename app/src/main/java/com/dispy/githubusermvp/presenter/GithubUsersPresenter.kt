@@ -20,9 +20,9 @@ class GithubUsersPresenter(iView: IGithubUsersView) {
                 mView.getUsers(result)
             }
 
-            override fun onFailure() {
+            override fun onFailure(message: String) {
                 mView.hideLoading()
-                mView.showErrorMessage()
+                mView.showErrorMessage(message)
             }
 
         })

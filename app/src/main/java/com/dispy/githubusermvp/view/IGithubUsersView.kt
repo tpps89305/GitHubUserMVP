@@ -6,5 +6,5 @@ interface IGithubUsersView {
     fun showLoading()
     fun hideLoading()
     fun getUsers(users: List<User>)
-    fun showErrorMessage()
+    fun showErrorMessage(message: String)
 }

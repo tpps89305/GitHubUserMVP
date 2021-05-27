@@ -1,6 +1,7 @@
 package com.dispy.githubusermvp
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import coil.load
@@ -30,11 +31,11 @@ class UserDetailActivity: AppCompatActivity(), IGithubUserDetailView {
     }
 
     override fun showLoading() {
-
+        binding.progressBar2.visibility = View.VISIBLE
     }
 
     override fun hideLoading() {
-
+        binding.progressBar2.visibility = View.GONE
     }
 
     override fun getUser(user: User) {
@@ -49,7 +50,7 @@ class UserDetailActivity: AppCompatActivity(), IGithubUserDetailView {
         binding.textLink.text = user.url
     }
 
-    override fun showErrorMessage() {
-        Toast.makeText(applicationContext, "Error when get users!", Toast.LENGTH_LONG).show()
+    override fun showErrorMessage(message: String) {
+        Toast.makeText(applicationContext, message, Toast.LENGTH_LONG).show()
     }
 }

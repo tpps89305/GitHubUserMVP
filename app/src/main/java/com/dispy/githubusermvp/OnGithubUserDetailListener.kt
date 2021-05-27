@@ -4,5 +4,5 @@ import com.dispy.githubusermvp.bean.User
 
 interface OnGithubUserDetailListener {
     fun onSuccess(result: User)
-    fun onFailure()
+    fun onFailure(message: String)
 }

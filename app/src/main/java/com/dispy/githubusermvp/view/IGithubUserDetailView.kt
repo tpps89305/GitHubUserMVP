@@ -6,5 +6,5 @@ interface IGithubUserDetailView {
     fun showLoading()
     fun hideLoading()
     fun getUser(user: User)
-    fun showErrorMessage()
+    fun showErrorMessage(message: String)
 }
