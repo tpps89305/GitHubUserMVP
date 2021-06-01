@@ -1,4 +1,6 @@
 # Show GitHub All User App
+![Demo](./readme/GithubUserMVP.jpg)
+
 An Android App which can get GitHub users, and show in list.
 
 ## Overview
